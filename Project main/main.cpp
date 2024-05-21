@@ -22,3 +22,37 @@ int menu() {
     return com;
 }
 
+int interactive(){
+    const char* filename1 = "BD_Diet.txt";
+    const char* filename2 = "BD_Diet_res.txt";
+    int n = 0;
+    int size;
+    ifstream fin(filename1, ios::in | ios::binary);
+    fin >> size;
+    fin.close();
+    Food* arr = new Food[size];
+    while(true){
+        switch(menu()){
+            case 1:
+                arr = Food::add(arr, n, size, is_interactive); break;
+            case 2:
+                arr = Food::remove(arr, n, size, is_interactive); break;
+            case 3:
+                Food::read_dbase(filename1, arr, n); break;
+            case 4:
+                Food::edit(arr, n, is_interactive); break;
+            case 5:
+                Food::print_dbase(arr, n); break;
+            case 6:
+                Food::sort_dbase(arr, n); break;
+            case 7:
+                Food::write_dbase(filename2, arr, n); break;
+            case 9:
+                delete[] arr;
+                return 0;
+        }
+    }
+    return 0;
+}
+
+

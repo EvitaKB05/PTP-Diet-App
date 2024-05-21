@@ -3,7 +3,6 @@
 
 #include "Textbox.h"
 #include "Button.h"
-#include "Person/Person.h";
 
 void FirstWindow(sf::RenderWindow *window, sf::Font arial,sf::Sprite FirstFonSprite,std::string *name, std::string *gender,std::string *height,std::string *weight, std::string *age){
     window->create(sf::VideoMode(640, 480), "SFML Project", sf::Style::Fullscreen);
@@ -771,8 +770,6 @@ std::string calculateCalories (std::string *height,std::string *weight,std::stri
 }
 
 int main() {
-    //Person user;
-    //user.get_user_data();
     std::string age;
     std::string name;
     std::string gender;

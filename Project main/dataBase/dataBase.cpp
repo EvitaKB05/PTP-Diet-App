@@ -48,3 +48,14 @@ void DataBase::getDataBase()
         // catalog.push_back(tempFood);
     }
 }
+Food::Food()
+{
+    count++;
+    id = count;
+    name = new char[10];
+    name[0] = '\0';
+    proteins = 0;
+    fats = 0;
+    carbs = 0;
+    energy=0;
+}

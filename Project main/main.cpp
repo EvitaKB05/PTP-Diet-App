@@ -101,4 +101,55 @@ int main() {
 
     int choice;
     cin >> choice;
+    switch (choice) {
+        case 1:
+            Diet* diet;
+            char diet_choice;
+
+            cout << " Choose the Diet Type( G - Gaining, L-Losing):";
+            cin >> diet_choice;
+
+            if (diet_choice == 'G') {
+                createDietForUnderweight();
+            }
+            else if (diet_choice == 'L') {
+                createDietForOverweight();
+            }
+            else {
+                cout << "Wrong choice!" << endl;
+                return 1;
+            }
+
+            diet->get_diet_plan();
+            //WeightGainDiet::createDietForGainWeight();
+            delete diet;
+            break;
+        case 2:
+            cout << "Choose an option:" << endl;
+            cout << "1. Count calories by yourself" << endl;
+            cout << "2. Count Calories with DataBase" << endl;
+            int option;
+            cin >> option;
+
+            if (option == 1) {
+                CalorieCounter counter;
+                int total_calories = counter.count_calories_by_yourself();
+                cout << " Overall Calories summary:" << total_calories << endl;
+            }
+            break;
+        case 3:
+            interactive();
+            break;
+        case 4:
+            Person::trackProgress(user);
+            break;
+        case 5:
+            return 0;
+        default:
+            cout << "Wrong choice!" << endl;
+    }
+
+
+    return 0;
+}
 

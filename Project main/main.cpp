@@ -67,5 +67,16 @@ void createDietForOverweight() {
     std::cout << "Diet plan for losing weight created:\nBreakfast: " << breakfast << "\nLunch: " << lunch << "\nDinner: " << dinner << std::endl;
 }
 
+void createDietForUnderweight() {
+    char breakfast[50], lunch[50], dinner[50];
+    std::cout << "Enter breakfast plan for gaining weight: ";
+    std::cin >> breakfast;
+    std::cout << "Enter lunch plan for gaining weight: ";
+    std::cin >> lunch;
+    std::cout << "Enter dinner plan for gaining weight: ";
+    std::cin >> dinner;
+
+    std::cout << "Diet plan for gaining weight created:\nBreakfast: " << breakfast << "\nLunch: " << lunch << "\nDinner: " << dinner << std::endl;
+}
 
 

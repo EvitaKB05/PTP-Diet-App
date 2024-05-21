@@ -259,3 +259,25 @@ bool Food::operator < (const Food &Food)
     }
     return false;
 }
+std::ostream &operator << (std::ostream &fout, const Food &Food)
+{
+    fout << Food.name << ' ' << Food.proteins << ' ' << Food.fats << ' ' << Food.carbs << ' ' << Food.energy << std::endl;
+    return fout;
+}
+std::istream &operator >> (std::istream &fin, Food &Food)
+{
+    fin >> Food.name >> Food.proteins >> Food.fats >> Food.carbs >> Food.energy;
+    return fin;
+}
+void Food::operator = (const Food &arr1)
+{
+    set_name(arr1.name);
+    set_proteins(arr1.proteins);
+    set_fats(arr1.fats);
+    set_carbs(arr1.carbs);
+    set_carbs(arr1.energy);
+}
+Food::~Food(){
+    count--;
+    delete[] name;
+}

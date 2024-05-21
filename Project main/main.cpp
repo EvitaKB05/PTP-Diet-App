@@ -78,5 +78,11 @@ void createDietForUnderweight() {
 
     std::cout << "Diet plan for gaining weight created:\nBreakfast: " << breakfast << "\nLunch: " << lunch << "\nDinner: " << dinner << std::endl;
 }
-
+int main() {
+    //DataBase data;
+    Person user;
+    user.get_user_data();
+    //Person person("Alice", 'f', 165, 55); // Создание объекта класса Person с инициализацией данных
+    user.checkWeightStatus(); // Вызов метода checkWeightStatus() для объекта person
+    //user.get_user_data();
 

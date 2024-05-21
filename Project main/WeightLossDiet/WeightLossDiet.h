@@ -22,6 +22,12 @@ public:
         get_meal_data("Dinner");
     }
 
+private:
+    void get_meal_data(const char* meal_name) {
+        std::cout << meal_name << ":" << std::endl;
+        // ... получение информации о продуктах
+    }
+};
 
 #endif //APPLICATION_WEIGHTLOSSDIET_H
 

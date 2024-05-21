@@ -75,3 +75,34 @@ Food::Food(const char* name, double proteins, double fats, double carbs, double 
     this->carbs=carbs;
     this->energy=energy;
 }
+Food* Food::add(Food* arr, int &n, int &size, int is_interactive){
+    if (n + 1 > size){
+        size = size * 2;
+        std::cout << "Достигнут предел базы данных! Размер увеличен вдвое!" << std::endl;
+    }
+    Food* newArr = new Food[size];
+    for(int i = 0; i < n; i++){
+        newArr[i] = arr[i];
+    }
+    n++;
+    Food new_struct;
+    if (is_interactive){
+        std::cout << "Введите данные о планете:" << std::endl;
+        std::cin >> new_struct;
+        std::cout << std::endl;
+    }
+    else{
+        std::cout << "Добавим следующие данные: Kepler 5241 0 4" << std::endl;
+        char* name = new char[10];
+        strcpy(name, "Kepler");
+        new_struct.set_name(name);
+        new_struct.set_proteins(12345);
+        new_struct.set_fats(1);
+        new_struct.set_carbs(0);
+        new_struct.set_energy(125);
+        delete[] name;
+    }
+    newArr[n - 1] = new_struct;
+    delete[] arr;
+    return newArr;
+}

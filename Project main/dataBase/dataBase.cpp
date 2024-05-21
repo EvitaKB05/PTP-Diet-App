@@ -230,3 +230,16 @@ void Food::sort_dbase(Food* arr, int n){
         }
     }
 }
+int Food::write_dbase(const char* filename, const Food* arr, int n){
+    std::ofstream fin(filename, std::ios::out);
+    if (!fin){
+        std::cout<<"Файла " << filename << " нет!" << std::endl;
+        return 1;
+    }
+    fin << n << std::endl;
+    for (int i = 0; i < n; i++){
+        fin << arr[i];
+    }
+    fin.close();
+    return 0;
+}

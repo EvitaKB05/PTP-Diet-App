@@ -85,4 +85,20 @@ int main() {
     //Person person("Alice", 'f', 165, 55); // Создание объекта класса Person с инициализацией данных
     user.checkWeightStatus(); // Вызов метода checkWeightStatus() для объекта person
     //user.get_user_data();
+     /* if (user.is_overweight()) {
+         cout << "You are fat :( " << endl;
+     }
+     else if (user.is_underweight()) {
+         cout << "You are skinny :( " << endl;
+     }
+ */
+    cout << "Choose an option:" << endl;
+    cout << "1. Make a Diet" << endl;
+    cout << "2. Count Calories" << endl;
+    cout << "3. Work with Data Base" << endl;
+    cout << "4. Show my progress" << endl;
+    cout << "5. Exit" << endl;
+
+    int choice;
+    cin >> choice;
 

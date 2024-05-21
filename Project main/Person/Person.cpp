@@ -75,3 +75,15 @@ void Person::get_user_data() { // Перекинуть чтобы в мейне 
     std::cout << "Please, enter type of your target diet(Loss/Healthy/Gain): ";
     std::cin >> DietType;
 }
+void Person::checkWeightStatus() {
+    float weightPercentage = static_cast<float>(weight) / height * 100;
+    if (weightPercentage >= 55) {
+        std::cout << "Sadly, you are fat :( " << std::endl;
+    } else if (weightPercentage <= 45) {
+        std::cout << "Sadly, you are skinny :( " << std::endl;
+    }
+    else if ((weightPercentage > 45) && (weightPercentage < 55)) {
+        std::cout << "Wow! You have healthy weight! :) " << std::endl;
+    }
+}
+

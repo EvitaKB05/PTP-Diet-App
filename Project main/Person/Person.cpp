@@ -86,4 +86,68 @@ void Person::checkWeightStatus() {
         std::cout << "Wow! You have healthy weight! :) " << std::endl;
     }
 }
+void Person::trackProgress(const Person &user) {
+    std::cout << "Enter diet period (days): ";
+    std::string period;
+    std::cin >> period;
+    std::cout << "Enter diet type (L - Loose, M - Maintenance, G - Gain):: ";
+    std::string dietType;
+    std::cin >> dietType;
+    std::cout << "Enter targer weight (kg): ";
+    int targetWeight;
+    std::cin >> targetWeight;
+    std::cout << "Enter option (1 - Loose, 2 - Maintenance, 3 - Gain):: ";
+    int choice;
+    std::cin >> choice;
+    switch (choice) {
+        case 1: {
+            std::cout << "Enter weight lost: ";
+            int weightLost;
+            std::cin >> weightLost;
+            std::cout << "Your start weight: ";
+            std::cout << user.weight << std::endl;
+            std::cout << "Your current weight: ";
+            double currentWeight = user.weight - weightLost;
+            std::cout << currentWeight << std::endl;;
+            if (currentWeight != targetWeight) {
+                std::cout << "Вы не справились со своей целью сбросить вес или перестарались с набором веса."
+                          << std::endl;
+            } else std::cout << "Вы справились со своей целью cсбросить вес." << std::endl;
+        }
+            break;
+        case 2: {
+            std::cout << "Enter weight change: ";
+            int weightChange;
+            std::cin >> weightChange;
+            std::cout << "Your start weight: ";
+            std::cout << user.weight << std::endl;
+            std::cout << "Your current weight: ";
+            double currentWeight2 = user.weight - weightChange;
+            std::cout << currentWeight2 << std::endl;
+            if (currentWeight2 != targetWeight) {
+                std::cout << "Вы не справились со своей целью поддерживать вес." << std::endl;
+            } else std::cout << "Вы справились со своей целью поддерживать вес." << std::endl;
+        }
+            break;
 
+        case 3: {
+            std::cout << "Enter weight gain change: ";
+            int weightGain;
+            std::cin >> weightGain;
+            std::cout << "Your start weight: ";
+            std::cout << user.weight << std::endl;
+            std::cout << "Your current weight: ";
+            double currentWeight3 = user.weight + weightGain;
+            std::cout << currentWeight3 << std::endl;
+            if (currentWeight3 < targetWeight) {
+                std::cout << "Вы не справились со своей целью набрать вес." << std::endl;
+            } else std::cout << "Вы справились со своей целью набрать вес." << std::endl;
+        }
+            break;
+
+        default:
+            std::cout << "Wrong choice!" << std::endl;
+    }
+
+
+}

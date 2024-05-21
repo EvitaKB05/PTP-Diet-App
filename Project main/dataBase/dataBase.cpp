@@ -106,3 +106,40 @@ Food* Food::add(Food* arr, int &n, int &size, int is_interactive){
     delete[] arr;
     return newArr;
 }
+Food* Food::remove(Food* arr, int &n, int&size, int is_interactive){
+    int count = 0, n1 = n;
+    if (n - 1 < int(size/4)){
+        size = size/2;
+        std::cout << "Размер массива избыточен, поэтому уменьшен вдвое" << std::endl;
+    }
+    Food* newArr = new Food[size];
+    for(int i = 0; i < n; i++){
+        newArr[i] = arr[i];
+    }
+    char* word = new char [20];
+    if (is_interactive){
+        std::cout << "Введите слово для удаления:" << std::endl;
+        std::cin >> word;
+    }
+
+    for (int i = 0; i < n; i++){
+        if(!strcmp(word, newArr[i].name)){
+            if (i != n - 1){
+                for (int j = i; j < n - 1; j++){
+                    newArr[j] = newArr[j + 1];
+                }
+            }
+            else{
+                count--;
+            }
+            n--;
+        }
+        count++;
+    }
+    delete[] word;
+    if (count == n1){
+        std::cout << "Такого слова в словаре нет!" << std::endl;
+    }
+    delete[] arr;
+    return newArr;
+}

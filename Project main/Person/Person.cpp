@@ -46,3 +46,32 @@ double Person::GetWeight() const {
 std::string Person::GetDietType() const {
     return DietType;
 }
+void Person::SetGender(char gender) { //+-
+    this->gender=gender;
+}
+
+void Person::SetHeight(double height) { //+
+    this->height = height;
+}
+
+void Person::SetWeight(double weight) { //+
+    this->weight = weight;
+}
+/*
+void Person::SetDietType(std::string DietType) {
+    this-> DietType= DietType;
+}
+*/
+void Person::get_user_data() { // Перекинуть чтобы в мейне можно было вводить
+    //std::cout<<name<<gender<<height<<weight<<std::endl;
+    std::cout << "Please, enter your name:";
+    std::cin >> name;
+    std::cout << "Please, enter your gender(m/f/o): ";
+    std::cin >> gender;
+    std::cout << "Please, enter your height(in cm): ";
+    std::cin >> height;
+    std::cout << "Please, enter your weight(in kg): ";
+    std::cin >> weight;
+    std::cout << "Please, enter type of your target diet(Loss/Healthy/Gain): ";
+    std::cin >> DietType;
+}

@@ -75,6 +75,20 @@ public:
     
 };
 
+class DataBase {
+private:
+    std::vector<Food> catalog;
+public:
+    DataBase();
+    //DataBase(Food food);
+    void printDataBase();
+    void printCategory(const foodCategories& category);
+    void addFood();
+    void deleteFood(std::string);
+    void getDataBase();
+    void calculate_calories_with_DataBase();
+};
+
 
 
 

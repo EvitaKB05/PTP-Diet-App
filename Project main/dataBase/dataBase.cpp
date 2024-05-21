@@ -156,3 +156,60 @@ int Food::read_dbase(const char* filename, Food* arr, int &n) {
     fin.close();
     return 0;
 }
+void Food::edit(Food* arr, int n, int is_interactive){
+    Food Food;
+    if (is_interactive){
+        std::cout << "Выберите продукт для редактирования:" << std::endl;
+        std::cin >> Food;
+        for(int i = 0; i < n; i++){
+            if(Food == arr[i]){
+                int num;
+                std::cout << "Выберите параметр редактирования:" << std::endl;
+                std::cout << "1. Изменить название продукта" << std::endl;
+                std::cout << "2. Изменить содержание белков в продукте" << std::endl;
+                std::cout << "3. Изменить содержание жиров в продукте" << std::endl;
+                std::cout << "4. Изменить содержание углеводов в продукте" << std::endl;
+                std::cout << "5. Изменить каллорийность продукта на 100г" << std::endl;
+                std::cin >> num;
+                switch (num){
+                    case 1:{
+                        std::cout << "Введите новое значение:" << std::endl;
+                        char* newname = new char [20];
+                        std::cin >> newname;
+                        arr[i].set_name(newname);
+                        delete[] newname;
+                        break;
+                    }
+                    case 2:{
+                        std::cout << "Введите новое значение:" << std::endl;
+                        int newproteins;
+                        std::cin >> newproteins;
+                        arr[i].set_proteins(newproteins);
+                        break;
+                    }
+                    case 3:{
+                        std::cout << "Введите новое значение:" << std::endl;
+                        int newfats;
+                        std::cin >> newfats;
+                        arr[i].set_fats(newfats);
+                        break;
+                    }
+                    case 4:{
+                        std::cout << "Введите новое значение:" << std::endl;
+                        int newcarbs;
+                        std::cin >> newcarbs;
+                        arr[i].set_carbs(newcarbs);
+                        break;
+                    }
+                    case 5:{
+                        std::cout << "Введите новое значение:" << std::endl;
+                        int newenergy;
+                        std::cin >> newenergy;
+                        arr[i].set_energy(newenergy);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}

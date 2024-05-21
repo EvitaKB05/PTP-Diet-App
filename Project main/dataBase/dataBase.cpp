@@ -243,3 +243,19 @@ int Food::write_dbase(const char* filename, const Food* arr, int n){
     fin.close();
     return 0;
 }
+bool Food::operator == (const Food &Food)
+{
+    if (strcmp(name, Food.name) == 0)
+    {
+        return true;
+    }
+    return false;
+}
+bool Food::operator < (const Food &Food)
+{
+    if (strcmp(name, Food.name) > 0)
+    {
+        return true;
+    }
+    return false;
+}

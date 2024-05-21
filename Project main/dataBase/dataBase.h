@@ -71,7 +71,27 @@ public:
     void set_energy(double energy){
         this->energy=energy;
     }
+Food();
 
+    Food (const char* name, double proteins, double fats, double carbs, double energy);
+
+    static Food* add(Food* arr, int &n, int &size, int is_interactive);
+
+    static Food* remove(Food* arr, int &n, int &size, int is_interactive);
+
+    static int read_dbase(const char* file_from, Food* arr, int &size);
+
+    static void edit(Food* arr, int n, int is_interactive);
+
+    static void print_dbase(const Food* arr, int n);
+
+    static void sort_dbase(Food* arr, int size);
+
+    static int write_dbase(const char* file_to, const Food* arr, int size);
+
+    Food (const Food& arr);
+
+    ~Food();
     
 };
 

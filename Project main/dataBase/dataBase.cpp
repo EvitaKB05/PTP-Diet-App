@@ -143,3 +143,16 @@ Food* Food::remove(Food* arr, int &n, int&size, int is_interactive){
     delete[] arr;
     return newArr;
 }
+int Food::read_dbase(const char* filename, Food* arr, int &n) {
+    std::ifstream fin(filename, std::ios::in | std::ios::binary);
+    if (!fin){
+        std::cout <<"Файла " << filename << " нет!" << std::endl;
+        return 1;
+    }
+    fin >> n;
+    for (int i = 0; i < n; i++){
+        fin >> arr[i];
+    }
+    fin.close();
+    return 0;
+}

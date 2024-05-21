@@ -59,3 +59,19 @@ Food::Food()
     carbs = 0;
     energy=0;
 }
+Food::Food(const Food& arr){
+    name = new char [strlen(arr.name) + 1];
+    strncpy(name, arr.name, strlen(arr.name) + 1);
+    proteins = arr.proteins;
+    fats = arr.fats;
+    carbs = arr.carbs;
+    energy = arr.energy;
+}
+Food::Food(const char* name, double proteins, double fats, double carbs, double energy){
+    this->name = new char [strlen(name)+1];
+    strcpy(this->name, name);
+    this->proteins=proteins;
+    this->fats=fats;
+    this->carbs=carbs;
+    this->energy=energy;
+}

@@ -24,4 +24,25 @@ Person::Person(const Person &other){
     this->weight=other.GetWeight();
     this->DietType=other.GetDietType();
 }
+Person::~Person() {
+    delete[] name;
+}
 
+char* Person::GetName() const {
+    return name;
+}
+
+char Person::GetGender() const {
+    return gender;
+}
+
+double Person::GetHeight() const {
+    return height;
+}
+
+double Person::GetWeight() const {
+    return weight;
+}
+std::string Person::GetDietType() const {
+    return DietType;
+}
